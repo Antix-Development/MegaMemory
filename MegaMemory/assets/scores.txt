@@ -1,0 +1,10 @@
+June,22
+Cliff,20
+Susan,18
+Helen,18
+Kate,17
+Raymond,16
+Henry,15
+Bunny,15
+Paul,15
+Penny,15
