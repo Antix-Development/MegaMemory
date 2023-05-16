@@ -11,7 +11,7 @@ Mega Memory is a card game I created whilst working towards gaining my Bachelor 
 
 The objective in Mega Memory is to find matching pairs, and when all the pairs have been found, have the most pairs to win.
 
-You can play against another human or computer player, with the computer player having 3 difficulty levels.
+You can play against a human or computer player, with the computer player having 3 difficulty levels. If you like you can also pit two computer players against eachother and spectate!
 
 You can choose the size of the game board (how many cards are laid out) and the game has a persistent high score feature.
 
