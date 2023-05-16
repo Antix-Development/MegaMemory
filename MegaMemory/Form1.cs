@@ -135,7 +135,6 @@ namespace MegaMemory
             MouseUp += mouseUp;
         }
 
-
         /// <summary>
         /// Save current player names and cleanup
         /// </summary>
@@ -168,7 +167,6 @@ namespace MegaMemory
         private void Form1_Load(object sender, EventArgs e)
         {
             Path = Directory.GetCurrentDirectory(); // cache this for loading files from folders
-
 
             //
             // Avoid flickering when repainting form
@@ -279,7 +277,6 @@ namespace MegaMemory
             //
 
             z_CreateDeck();
-
 
             //
             // Create HighScores
@@ -748,9 +745,6 @@ namespace MegaMemory
             PausedWindow.AddChild(button);
 
 
-
-
-
             GameState = GAMESTATE_NONE; // valid states are "none", "menu", "game", and "scores"
             NextGameState = GAMESTATE_NONE;
             Counter = 0;
@@ -760,9 +754,9 @@ namespace MegaMemory
             // Try to get a windows form to repaint itsself 60 times a second.. it's not a pretty sight.
             //
 
-            GameTimer = new System.Windows.Forms.Timer();
+            GameTimer = new Timer();
             GameTimer.Interval = 1000 / 60;
-            GameTimer.Tick += new System.EventHandler(z_enterFrame);
+            GameTimer.Tick += new EventHandler(z_enterFrame);
             GameTimer.Start();
 
             //
@@ -775,8 +769,6 @@ namespace MegaMemory
             MediaPlayer.settings.volume = 50;
             MediaPlayer.URL = Path + @"\assets\sounds\music_menu.wav";
         }
-
-
 
         /// <summary>
         /// Toggle audio playback
@@ -1099,7 +1091,7 @@ namespace MegaMemory
                     HighScores.sortScores(); // sort top 10
                     HighScores.saveScores(); // save top 10
                     String[] strings = HighScores.getStrings(); // get formatted highscores
-                    for (int i = 0; i <= 5; i++) // set TextFields inscores window with formatted highscores
+                    for (int i = 0; i <= 5; i++) // set TextFields in scores window with formatted highscores
                     {
                         TextField textField = (TextField)ScoresWindow.GetChildAt(i +2);
                         textField.SetText(strings[i]);
@@ -1445,7 +1437,6 @@ namespace MegaMemory
         //
         // Exit game rules window back to main window
         //
-
         public void closeScoresWindow(object sender, EventArgs eventArgs)
         {
             if (ExitingScoresMenuFromGame)
@@ -1467,7 +1458,6 @@ namespace MegaMemory
         //
         // Exit game rules window back to main window
         //
-
         public void closeRulesWindow(object sender, EventArgs eventArgs)
         {
             SoundBank.playSound("button_click");
@@ -1484,7 +1474,6 @@ namespace MegaMemory
         //
         // Show next page
         //
-
         public void gotoNextRulesPage(object sender, EventArgs eventArgs)
         {
             SoundBank.playSound("button_click");
@@ -1515,7 +1504,6 @@ namespace MegaMemory
                 Invalidate();
             }
         }
-
 
         /// <summary>
         /// Set player one to be previous player type
@@ -1555,8 +1543,7 @@ namespace MegaMemory
             Invalidate();
         }
 
-
-            public void z_beginNewGame(object sender, EventArgs eventArgs)
+        public void z_beginNewGame(object sender, EventArgs eventArgs)
         {
             SoundBank.playSound("deck_shuffle");
             ActiveWindow = null;
@@ -1608,8 +1595,6 @@ namespace MegaMemory
                 CardGroup.AddChild(cardB);
             }
 
-
-
             //// randomly select who goes first
             if (RNG.NextDouble() < 0.5f)
             {
@@ -1630,28 +1615,6 @@ namespace MegaMemory
             GameState = GAMESTATE_WAITING;
             NextGameState = BEGIN_PLAYER_TURNING_CARDS;
             Counter = WAIT_SUPER_SHORT;
-
-            //if (playerTwo.hasNoMorePairs())
-            //{
-            //    infoText.setText("jxghfkjashfjkhsfsdkaskf");
-            //    gameState = GAMESTATE_WAITING;
-            //    nextGameState = COMPUTER_REQUESTING_CARD;
-            //    counter = WAIT_SHORT;
-            //    infoText.setText("");
-            //    Invalidate();
-            //}
-            //else
-            //{
-            //    gameState = GAMESTATE_WAITING;
-            //    nextGameState = COMPUTER_MAKING_PAIRS;
-            //    counter = WAIT_SHORT;
-            //    infoText.setText(playerTwo.name + " is making pairs");
-            //    Invalidate();
-            //}
-            ////            infoText.setText("Select pairs from hand");
-
-
-
 
             MediaPlayer.URL = Path + @"\assets\sounds\music_game.wav"; // start ingame music playing
 
@@ -1862,8 +1825,6 @@ namespace MegaMemory
                 x1 += 128;
             }
         }
-
-
 
         /// <summary>
         /// Set player name when textbox loses focus
