@@ -1,4 +1,4 @@
-﻿
+
 <div align="justify">
 
 ## Mega Memory
